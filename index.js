@@ -31,6 +31,10 @@ async function dbConnect() {
     });
 
     // _______________________Projects______________________
+    app.get("/projects", async (req, res) => {
+      const projects = await projectCollection.find({}).toArray();
+      res.status(200).json(projects);
+    });
 
     // _______________________Contributions______________________
   } catch (error) {
